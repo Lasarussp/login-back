@@ -10,8 +10,6 @@ const bcrypt = require("bcryptjs");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 
-
-const mongoUrl = "mongodb+srv://lasarus:12345@login.mbsvzgx.mongodb.net/?retryWrites=true&w=majority";
 //const mongoUrl = "mongodb://localhost:27017/login";
 
 mongoose.connect(mongoUrl, {
