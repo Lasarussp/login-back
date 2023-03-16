@@ -73,7 +73,7 @@ mongoose.connect(mongoUrl, {
 
 
     app.listen(PORT, () => {
-        console.log("The port is running successfully....🎊✨")
+        console.log(`The server is running on the port : ${PORT}....🎊✨`)
     });
 
 
