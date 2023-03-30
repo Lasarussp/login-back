@@ -13,9 +13,9 @@ app.use(express.urlencoded({ extended: false }));
 
 const JWT_SECRET = "qwertyuiopasdfghjkl[;]fsfsfsf";
 
-//const mongoUrl = "mongodb://localhost:27017/login";
+const mongoUrl = "mongodb://localhost:27017/login";
 
-const mongoUrl = process.env.MONGO_URL;
+//const mongoUrl = process.env.MONGO_URL;
 
 mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
