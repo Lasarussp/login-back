@@ -7,16 +7,15 @@ dotenv.config();
 const cors = require("cors");
 app.use(cors());
 const jwt = require("jsonwebtoken");
-var nodemailer = require("nodemailer");
 const bcrypt = require("bcryptjs");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 
 const JWT_SECRET = "qwertyuiopasdfghjkl[;]fsfsfsf";
 
-const mongoUrl = "mongodb://localhost:27017/login";
+//const mongoUrl = "mongodb://localhost:27017/login";
 
-//const mongoUrl = process.env.MONGO_URL;
+const mongoUrl = process.env.MONGO_URL;
 
 mongoose.connect(mongoUrl, {
     useNewUrlParser: true,
@@ -135,28 +134,6 @@ mongoose.connect(mongoUrl, {
             });
             const link = `http://localhost:5000/reset-password/${oldUser._id}/${token}`;
             console.log(link);
-           /* var transporter = nodemailer.createTransport({
-                service: 'gmail',
-                auth: {
-                  user: "codewithbobg@gmail.com",
-                  pass:"Las@5544" ,
-                }
-              });
-              
-              var mailOptions = {
-                from: '001lasarus@gmail.com',
-                to: 'devfsd01@gmail.com',
-                subject: 'Password reset',
-                text: link,
-              };
-              
-              transporter.sendMail(mailOptions, function(error, info){
-                if (error) {
-                  console.log(error);
-                } else {
-                  console.log('Email sent: ' + info.response);
-                }
-              });*/
         } catch (error) {}
     });
 
