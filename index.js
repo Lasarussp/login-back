@@ -1,9 +1,9 @@
-dotenv.config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 app.use(express.json());
 const dotenv = require('dotenv');
+dotenv.config();
 const cors = require("cors");
 app.use(cors());
 const jwt = require("jsonwebtoken");
@@ -135,17 +135,17 @@ mongoose.connect(mongoUrl, {
             });
             const link = `http://localhost:5000/reset-password/${oldUser._id}/${token}`;
             console.log(link);
-            var transporter = nodemailer.createTransport({
+           /* var transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                  user: process.env.mail_user,
-                  pass: process.env.mail_pass,
+                  user: "codewithbobg@gmail.com",
+                  pass:"Las@5544" ,
                 }
               });
               
               var mailOptions = {
-                from: 'codewithbobg@gmail.com',
-                to: options.email,
+                from: '001lasarus@gmail.com',
+                to: 'devfsd01@gmail.com',
                 subject: 'Password reset',
                 text: link,
               };
@@ -156,7 +156,7 @@ mongoose.connect(mongoUrl, {
                 } else {
                   console.log('Email sent: ' + info.response);
                 }
-              });
+              });*/
         } catch (error) {}
     });
 
@@ -199,7 +199,7 @@ mongoose.connect(mongoUrl, {
               },
             }
           );
-      
+          res.json({ status : "Password Updated Successfully...!"})
           res.render("index", { email: verify.email, status: "verified" });
         } catch (error) {
           console.log(error);
